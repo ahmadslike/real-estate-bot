@@ -96,7 +96,7 @@ def save_lead(data: dict) -> str:
 def get_ai_response(conversation_history: list) -> str:
     try:
         model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash",
+            model_name="gemini-2.0-flash",
             system_instruction=SYSTEM_PROMPT
         )
         # بناء السجل بطريقة صحيحة
@@ -115,7 +115,7 @@ def get_ai_response(conversation_history: list) -> str:
 
 def extract_lead_data(conversation_history: list) -> dict:
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemini-2.0-flash")
         full_convo = "\n".join([
             f"{'عميل' if m['role']=='user' else 'أحمد'}: {m['content']}"
             for m in conversation_history
